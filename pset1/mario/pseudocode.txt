@@ -1,0 +1,5 @@
+Prompt the user for a positive interger from 1 to 8 to assign to n for the height.
+If n is less than 1 or greater than 8, return the user to step one.
+If n is greater than 0 and less than 9:
+    Iterate from 1 through the user defined height.
+    On iteration i, print i number of hashtags and then a newline.

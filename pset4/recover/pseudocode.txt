@@ -1,0 +1,57 @@
+1. Open the memory card file
+  - Use `FILE *f = fopen(filename, "r");` to open/read the file
+  
+2. Look thru the memory card file for the beginning of a JPEG
+  - Every JPEG always starts with `0xff 0xd8 0xff` (1st 3 bytes)
+  - Last byte of every JPEG is `0xe<*>` <*> = can be from 0-f
+  - Each JPEG is stored back to back in the memory card file
+    For each 512 block in memory card file
+      if block starts with `0xff 0xd8 0xff` and 4th byte == `0xe*`
+      (f[0] == 0xff & f[1] == 0xd8 & f[2] == 0xff)
+      (use bitwise: (f[3] & 0xf0) == 0xe0)
+        3. Open a new JPEG file
+           `fread(data, size, number, inptr)`
+           - data: pointer to data storage block
+           - size: number of bytes you want to read from file
+           - number: number of elements you want to read
+           - inptr: FILE * you are going to read data from
+        4. Keep writing data in 512 bytes until a new JPEG is found
+           - each new JPEG should be named ***.jpg starting with 000.jpg
+             (sprintf(filename, "%03i.jpg", 2);)
+             - filename: name of the string you want to write to
+             - "%03i.jpg": format (3 digit integer.jpg)
+             - 2: the number that you want to substitute in the 3 digit int
+             - make sure that filename has enough chars to represent filename
+        5. Close the JPEG and start writing a new JPEG
+           - `FILE *img = fopen(filename, "w");`
+             (write a new file with all the memory you find for that JPEG in the memory file)
+           - `fwrite(data, size, number, outptr);`
+             - data: pointer to bytes that will be writen to file
+             - size: how big the elements are (# of bytes in each element you are going to write)
+             - number: number of elements you are going to write
+             - outptr: FILE * pointer you are going to write the data to
+        6. Repeat steps 2-5 until the end of the file is reached
+           - need to make sure you have a condition in the `fread` method above to tell the program when it has reached the end of the file.
+    return [new JPEG file]
+
+------------------------------------------------------
+
+Open memory card file
+
+Repeat until the end of the card:
+    
+    Read 512 bytes into a buffer (using `fread`)
+    
+    If the start of a new JPEG:
+        If the first JPEG:
+            start writing first file
+            
+        Else:
+            close file
+            start writing a new JPEG file
+            
+    Else:
+        If already found a JPEG:
+            keep writing to the JPEG file
+            
+Close any remaining files

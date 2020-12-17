@@ -1,0 +1,49 @@
+######### plurality pseudocode #########
+
+######### code provided for me #########
+
+Constant Provided:
+  MAX = 9
+
+Structure Provided:
+  candidate = [string name, int votes]
+  
+Array Provided:
+  candidates = [name, votes] < MAX
+  
+Variables Provided:
+  candidate_count = Number of candidates in the array above < MAX
+  
+Inputs from user:
+  In command prompt user enters candidate names for election
+  If user enters < 2 args in cmd promt
+    returns "Usage: plurality [candidate ...]"
+  voter_count = number of voters
+  name = candidate name voter voted for (repeats until == voter_count)
+
+######### TO DO #########
+
+###### vote ######
+
+def vote:
+
+For number of candidates inputted by user
+  If input name == candidate in list candidate.name
+    add 1 vote to total votes for that candidate
+    Return true if successful
+
+  If input name != candidate in list candidate.name
+    no change to vote totals on any candidate
+    Return false to indicate invalid ballot
+
+###### print_winner ######
+
+def print_winner:
+
+Find the number of votes that is the highest in candidate.votes
+  
+  If candidate.votes is largest number
+    Print name of candidate with the most votes + \n
+
+  If candidate votes are equal
+    Print names of candidates (one per new line) + \n

@@ -1,0 +1,129 @@
+######### runoff pseudocode #########
+
+######### code provided for me #########
+
+### Constants Provided: ###
+
+  MAX_VOTERS = 100
+  MAX_CANDIDATES = 9
+
+### Structure Provided: ###
+
+  candidate = [string name, int votes, bool eliminated]
+  
+### Arrays Provided: ###
+
+  preferences = [int MAX_VOTERS, int MAX_CANDIDATES]
+    stores the preferences entered by the user
+    MAX_VOTERS = input(Number of voters) = the voter index number
+    MAX_CANDIDATES = input(Number of candidates on command line) = voter rank number
+    The value in the array = the candidate index number
+
+  candidates = [name, votes, eliminated] < MAX_CANDIDATES
+    name = input(Names entered on command line)
+    votes = input(Number of current votes entered by user)
+    eliminated = bool(indicates if candidate has been eliminated from election)
+  
+### Variables Provided: ###
+
+  GLOBAL:
+    candidate_count = Number of candidates in the candidates array
+    voter_count = input(Number of voters)
+
+  FROM FUNCTIONS:
+    won = print_winner if election has been won
+    tie = is_tie if more than one winner
+  
+### Inputs from user: ###
+
+  In command prompt user enters candidate names for election
+  If user enters < 2 args in cmd promt
+    returns "Usage: runoff [candidate ...]"
+  voter_count = number of voters
+  name = candidate name voter voted for (repeats until == voter_count) based on rank number 1-3
+    for each voter, user needs to enter 3 candidates in order of preference from most to least
+
+###### HOW MAIN RUNS: ######
+
+  Gets user input of the candidate names from command line
+  Prompts user for the number of voters
+  Loops to get name of candidate in rank order of most to least preferred from user until all voters have voted
+  Loops to check for winner, 
+    If any one candidate has more then 1/2 (majority) rank 1 preferences
+      winner is declared
+    else
+      eliminate the candidate with least amount of votes
+      re-run election without eliminated candidate
+
+
+######### TO DO #########
+
+###### vote ######
+
+def vote:
+
+Create a variable to hold candidate index value
+For number of candidates inputted by user find index number if candidate exists
+  If input name == candidate in list candidate.name
+    candidate index value = candidate[index num]
+    return to end if statement
+
+if voter_index > -1
+    update preferences array
+      i = index location for voter (0 thru n(num of voters))
+      j = voter's rank for candidate (0 thru n(num of candidates))
+      assigned val = index location for candidate
+    Return true if successful
+
+else ( if voter_index == -1)
+  no change to preference array
+  Return false to indicate invalid entry
+
+###### tabulate ######
+
+def tabulate:
+  (updates vote counts for all non-eliminated candidates)
+  (v = voter index position)
+  (looks at all voter's preferences, computes total votes by looking at each voter's top choice, if not eliminated)
+  if candidate in preference[v][0] is not eliminated
+    votes = candidate in preference[v][0]
+    update vote count for votes
+  else
+    if preference[v][i].eliminate == true
+      preference[v][i++]
+    else  
+      winner = candidate in preference[v][i]
+    update vote count for winner
+    
+
+###### print_winner ######
+
+def print_winner:
+  if candidates.votes >= voter count / 2
+    print candidate name
+    return true
+  else
+    return false
+
+###### find_min ######
+
+def find_min:
+  if candidates.eliminated == false
+    return min num of votes for all non-eliminated candidates
+
+
+###### is_tie ######
+
+def is_tie:
+  if candidates.votes == find_min
+    if count > 1
+    return true
+  else
+    return false
+
+###### eliminate ######
+
+def eliminate:
+  while candidates[i].eliminate == false
+    if candidate[i].votes are equal to find_min
+      return true value for candidates[i].eliminate

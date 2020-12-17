@@ -1,0 +1,132 @@
+  ######### filter pseudocode #########
+
+        ###### helpers.c ######
+
+######### code provided for me #########
+
+#include "helpers.h"
+
+// Convert image to grayscale
+void grayscale(int height, int width, RGBTRIPLE image[height][width])
+{
+    return;
+}
+
+// Convert image to sepia
+void sepia(int height, int width, RGBTRIPLE image[height][width])
+{
+    return;
+}
+
+// Reflect image horizontally
+void reflect(int height, int width, RGBTRIPLE image[height][width])
+{
+    return;
+}
+
+// Blur image
+void blur(int height, int width, RGBTRIPLE image[height][width])
+{
+    return;
+}
+
+#########  HINTS  #########
+
+Each image is a 2d array:
+    each row is image[i]
+    each pixel is image[i][i]
+
+How to get the last index values for rows and pixels:
+    if the image has n number of rows:
+        then the last row of the image == image[n - 1]
+    if image has x number of pixels per row:
+        the the last pixel in the row == image[n][x - 1]
+
+Each color has an integer value of 0 to 255
+
+For **black** = red, green, and blue are all set to 0
+
+For **white** = red, green, and blue are all set to 255
+
+For different shades of **gray** = all 3 colors are set to the same value depending on how light or dark you want the shade of grey to be. 
+
+Set the value of the pixel in the image:
+    red == image[n][x].rgbtRed = 0;
+    green == image[n][x].rgbtGreen = 0;
+    blue == image[n][x].rgbtBlue = 0;
+
+
+#########  TO DO  #########
+
+// Convert image to grayscale //
+
+for every row in image:
+    for every pixel in image[i]:
+        calculate the average of the red, green, and blue values
+        round the average to the nearest integer
+        change red value to average
+        change green value to average
+        change blue value to average
+        
+// Convert image to sepia //
+
+Sepia formulas:
+    sepia red =       0.393 * orig red
+                    + 0.769 * orig green
+                    + 0.189 * orig blue
+                  
+    sepia green =     0.349 * orig red
+                    + 0.686 * orig green
+                    + 0.168 * orig blue
+    
+    sepia blue =      0.272 * orig red
+                    + 0.534 * orig green
+                    + 0.131 * orig blue
+
+for every row in image:
+    for every pixel in image[i]:
+        calculate sepia red and round to nearest integer and ensure it is >= 255
+        calculate sepia green and round to the nearest integer and ensure it is >= 255
+        calculate sepia blue and round to the nearest integer and ensure it is >= 255
+            change red value to sepia red
+            change green value to sepia green
+            change blue value to sepia blue
+
+// Reflect image horizontally //
+
+for every row in image:
+    for every pixel in image[i]:
+        create a temp 
+        change order of pixels from ascending to descending
+
+// Blur image //
+
+Box Blur = take average of all the colors of all the "boxes" around that pixel
+            this means the average of colors in the 3 x 3 matrix around the pixel
+            if the pixel is on the edge you average all the pixels within 1 row and 1 column of pixel.
+
+for every pixel in image[i]:
+
+    red totals = (image[i - 1][x - 1].rgbtRed) + (image[i - 1][x].rgbtRed) + (image[i - 1][x + 1].rgbtRed) + (image[i + 1][x - 1].rgbtRed) + (image[i + 1][x].rgbtRed) + (image[i + 1][x + 1].rgbtRed) + (image[i][x - 1].rgbtRed) + (image[i][x + 1].rgbtRed)
+    green totals = (image[i - 1][x - 1].rgbtGreen) + (image[i - 1][x].rgbtGreen) + (image[i - 1][x + 1].rgbtGreen) + (image[i + 1][x - 1].rgbtGreen) + (image[i + 1][x].rgbtGreen) + (image[i + 1][x + 1].rgbtGreen) + (image[i][x - 1].rgbtGreen) + (image[i][x + 1].rgbtGreen)
+    blue totals = (image[i - 1][x - 1].rgbtBlue) + (image[i - 1][x].rgbtBlue) + (image[i - 1][x + 1].rgbtBlue) + (image[i + 1][x - 1].rgbtBlue) + (image[i + 1][x].rgbtBlue) + (image[i + 1][x + 1].rgbtBlue) + (image[i][x - 1].rgbtBlue) + (image[i][x + 1].rgbtBlue)
+    
+    red new_val = red totals / len(red totals)
+    green new_val = green totals / len(green totals)
+    blue new_val = blue totals / len(bluetotals)
+    
+    change red value to red_new_val
+    change green value to green_new_val
+    change blue value to blue_new_val
+
+// Try making code less combersome
+for each row in the image matrix:
+    for each column in the image matrix:
+        set count to start at 0
+        for each neighbor pixel within radius m in x direction
+            for each neighbor pixel within radius m in y direction
+                add the color value to the total
+                count++
+            
+        final = total / count
+        
