@@ -1,7 +1,7 @@
 // Implements a list of numbers with an array of dynamic size using realloc
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h>  // contains realloc
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
     list[2] = 3;
 
     // Resize list to be of size 4
-    int *tmp = realloc(list, 4 * sizeof(int));
+    int *tmp = realloc(list, 4 * sizeof(int));  // re allocates the memory and takes away the need for the temp placeholder.
     if (tmp == NULL)
     {
         return 1;
