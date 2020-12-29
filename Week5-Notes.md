@@ -245,7 +245,7 @@ Example of a hash function:
   unsigned int hash(char* str)
   {
     int sum = 0;
-    for (int j = 0; str[j] != '\0'; j++)  // detirmines the end of the string
+    for (int j = 0; str[j] != '\0'; j++)  // determines the end of the string
     {
       sum += str[j];  // Adds up all the ASCII values of the string
     }
