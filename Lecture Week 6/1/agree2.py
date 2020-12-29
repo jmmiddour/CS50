@@ -7,7 +7,7 @@ from cs50 import get_string
 s = get_string("Do you agree?\n")
 
 # Check whether agreed
-if re.search("^y(es)?$", s, re.IGNORECASE):
+if re.search("^y(es)?$", s, re.IGNORECASE):  # use regex to search for a pattern
     print("Agreed.")
 elif re.search("^no?$", s, re.IGNORECASE):
     print("Not agreed.")

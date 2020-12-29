@@ -1,0 +1,22 @@
+DNA Pseudocode
+---------------
+Need 2 command line agruements:
+1. CSV file - STR counts for a list of individuals
+2. TXT file - The DNA sequence to identify
+
+Print an error message of my choice for incorrect number of arguements
+
+Open the CSV and read into memory
+    First row should be column names
+    First column will be Name and following will be STR sequences
+    
+Open the TXT and read into memory
+
+For each STR in the TXT file
+    Compute the lonest run of consecutive repeats
+    
+    If the STR counts match exactly to an individual in the CSV
+        Print name of matching individual
+        
+    Else
+        print "No match"
