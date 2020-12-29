@@ -56,20 +56,17 @@ seqs = dna.columns.tolist()[1:]
 max_seq = [max_sub_str(seq, i) for i in seqs]
 
 # # Test my code
-print(max_seq)
+# print(max_seq)
 
 name = []
-# seq_max = []
 
 # Iterate thru dna dataframe rows to get values needed
-# for i in range(len(dna)):
-    
 # Pull out the name for each row
 for i, row in dna.iterrows():
-    name.append([row[0]])
+    name.append(row[0])
     
 # # Checking my work
-print(name)
+# print(name)
 
 # Transpose my dataframe, drop name column, convert to a dictionary
 dnaT = dna.drop('name', axis=1).T.to_dict('list')
@@ -81,14 +78,18 @@ dnaT = dna.drop('name', axis=1).T.to_dict('list')
 seq_max = list(dnaT.values())
 
 # # Test my code
-print(seq_max)
+# print(seq_max)
 
+# Iterate thru the max sequence values in dna
 for row in seq_max:
-    print(row)
+    
+    # print(row)  # Test my code
+    
     if max_seq == row:  # If the seq values from csv matches txt file
-        for i in range(len(name)):
-            print(name[i])  # Return the name
-            exit(0)  # Exit the program sucessfully
+        for i in range(len(name)):  # get index number
+            if i == (max_seq == row):  # get index for matched value
+                print(name[i])  # Return the name
+                exit(0)  # Exit the program sucessfully
 
 else:
     print('No match')  # If no match is found
