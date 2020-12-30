@@ -7,7 +7,7 @@ import pandas as pd
 
 # Get command line arguements
 if len(sys.argv) != 3:
-    print('Usage: python dna.py <database.csv> <sequence.txt>')
+    print('Usage: python dna0.py <database.csv> <sequence.txt>')
     print('Please try again!')
     exit(1)
 
@@ -19,6 +19,7 @@ else:
     s = open(sys.argv[2])  # Open txt
     seq = s.read().rstrip('\n')  # read txt
 
+
 # # Test that files read in correctly
 # print(dna)
 # print(seq)
@@ -26,7 +27,6 @@ else:
 
 # Define a function to iterate thru string to get max sequence for substring
 def max_sub_str(seq, sub):
-
     res = [0] * len(seq)  # list to store results (count of seqs) == seq length
 
     # Iterate over the string from right to left
@@ -50,49 +50,49 @@ def max_sub_str(seq, sub):
 seqs = dna.columns.tolist()[1:]
 
 # # Test my code
-# print('seqs:\n', seqs)
+print('seqs:\n', seqs)
 
 # Iterate through txt file to get max seq count using list comprehension
 max_seq = [max_sub_str(seq, i) for i in seqs]
 
 # # Test my code
-# print('max_seq:\n', max_seq)
+print('max_seq:\n', max_seq)
+
+name = []
+
+# Iterate thru dna dataframe rows to get values needed
+# Pull out the name for each row
+# for i, row in dna.iterrows():
+#     name.append(row[0])
+
+# # Checking my work
+print('Name:\n', name)
 
 # Transpose my dataframe, drop name column, convert to a dictionary
-dnaT = dna.T.to_dict('list')
+dnaT = dna.drop('name', axis=1).T.to_dict('list')
 
 # # Test my code
-# print('dnaT:\n', dnaT)
+print('dnaT:\n', dnaT)
 
-# Seperate the dictionary by key and value
-key, val = zip(*dnaT.items())
+# Get values for each row
+# seq_max = list(dnaT.values())
 
 # # Test my code
-# print('Keys:\n', key, '\nValues:\n', val)
+# print('seq_max:\n', seq_max)
 
-# Iterate thru values to get names
-name = []  # Empty list to store names only
-for i in range(len(val)):  # get index number
-    name.append(val[i][0])  # use index num to get the names and add to list
+# Iterate thru the max sequence values in dna
+for val in dnaT.values():
 
-# # Test my code 
-# print('Names: ', name)
+    print('Value\n', val)  # Test my code
 
-# Iterate thru values to get sequences for each person
-vals = []  # Empty list to store the sequences
-for i in range(len(val)):  # get index number
-    vals.append(val[i][1:])  # uses index num to get the seq and add to list
+    if max_seq == val:  # If the seq values from csv matches txt file
+        for i in dnaT.keys():  # get index number
+            if i == (max_seq == val):  # get index for matched value
+                print(name[i])  # Return the name
+                exit(0)  # Exit the program sucessfully
 
-# # Tets my code
-# print('Values: ', vals)
+else:
+    print('No match')  # If no match is found
 
-# Iterate thru names and vals to compare vals and seqs
-for i in range(len(name)):  # get index number
-    if vals[i] == max_seq:  # check if there is a match
-        print(name[i])  # if a match, print the name
-        exit(0)  # stop the program, completed
-
-else:  # If there is no match
-    print('No match')  # print no match
-
-s.close()  # close the txt file
+# Close the txt file
+s.close()
