@@ -2,12 +2,14 @@ import cs50
 import csv
 
 # Create database
-open("shows4.db", "w").close()
-db = cs50.SQL("sqlite:///shows4.db")
+open("shows4.db", "w").close()  # creates the an empty file, then closes it
+db = cs50.SQL("sqlite:///shows4.db")  # assign to a variable to this write SQL queries in python
 
 # Create tables
-db.execute("CREATE TABLE shows (id INT, title TEXT, year NUMERIC, PRIMARY KEY(id))")
-db.execute("CREATE TABLE genres (show_id INT, genre TEXT, FOREIGN KEY(show_id) REFERENCES shows(id))")
+# Creates the "Primary" table that links to another table using `PRIMARY KEY` (the column that has the same values in each table)
+db.execute("CREATE TABLE shows (id INT, title TEXT, year NUMERIC, PRIMARY KEY(id))")  # Can specify new column names. Primary table
+# Create another table (secondary) that connects to the primary table using a `FOREIGN KEY` (the column with the same values as the primary table)
+db.execute("CREATE TABLE genres (show_id INT, genre TEXT, FOREIGN KEY(show_id) REFERENCES shows(id))")  # secondary table
 
 # Open TSV file
 # https://datasets.imdbws.com/title.basics.tsv.gz
