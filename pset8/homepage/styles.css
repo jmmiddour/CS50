@@ -1,0 +1,76 @@
+h1
+{
+    color: #4205C2;
+    background-color: #EAE0FE;
+    font-family: Comic Sans MS;
+    text-align: center;
+    padding: 30px 15px 0px 15px;
+}
+
+h4
+{
+    padding: 15px 30px 3px 30px;
+}
+
+body
+{
+    color: #4205C2;
+    background-color: #EAE0FE;
+    font-family: Comic Sans MS;
+    text-align: center;
+    padding: 3px 3px 3px 3px;
+    font-size: medium;
+}
+
+#nav-bar
+{
+    text-align: left;
+    background-color: #4205C2;
+}
+
+.nav-text
+{
+    color: #EAE0FE;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.row
+{
+    display: block;
+    position: relative;
+}
+
+.lcolumn
+{
+    float: left;
+    width: 85%;
+    padding: 20px 60px 20px 60px;
+    text-align: left;
+    direction: ltr;
+}
+
+.rcolumn
+{
+    float: right;
+    width: 85%;
+    padding: 20px 60px 20px 60px;
+    text-align: right;
+    direction: ltr;
+}
+
+.column
+{
+    float: None;
+    width: 60%;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after
+{
+    content: "";
+    display: table-cell;
+    clear: both;
+}

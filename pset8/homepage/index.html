@@ -2,11 +2,71 @@
 
 <html lang="en">
     <head>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="styles.css" rel="stylesheet">
-        <title>My Webpage</title>
+        <title>Home</title>
+        <script>
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                if (name === '')
+                {
+                    name = 'world';
+                }
+                alert('Hello, ' + name + '!\n\nIt is nice to meet you.\n\nThank you for visiting my website.');
+            }
+        </script>
     </head>
     <body>
-        hello, homepage
+    <div id="nav-bar">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active nav-text" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-text" href="yds.html">Why Data Science?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-text" href="ycs50.html">Why CS50?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-text" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-text" href="contact.html">Contact</a>
+          </li>
+        </ul>
+    </div>
+    <br>
+    <div>
+    <form onsubmit="greet(); return false;" style="text-align: left;">
+        <label for="name">What is your name?</label>
+        <input type="text" id="name" value="Type your name here">
+        <input type="submit" value="Submit">
+    </form>
+    </div><br>
+        <div>
+            <h1>Hello World!</h1>
+        </div>
+        <div>
+            <h3>Welcome to my home page!</h3><br><hr>
+            <h3>My name is Joanne Middour</h3><br>
+            <p>
+                I am currently a student attending both Harvard and Lambda School.<br>This website is a project I am doing for CS50 at Harvard.<br>I am a student in Harvard's CS50 program, as well as a student in the Data Science program at Lambda School.
+            </p>
+            <p>
+              If you would like to know more about me,<br>you can go to one of my other pages linked in the navigation bar or below.
+            </p><br>
+            <hr>
+            <p>
+              <h4>List of my pages and what you will find there:</h4>
+              <ul style="text-align: left; padding: 30px;">
+                <li><a href="index.html">Home</a> - this is the current page you are on.</li>
+                <li><a href="yds.html">Why Data Science?</a> - this is where I explain the reason I chose to go down the path of learning to be a Data Scientist.</li>
+                <li><a href="ycs50.html">Why CS50?</a> - this is where I talk about my reason for taking the CS50 course at Harvard, even though there is already a CS course at Lambda School which I will be taking shortly.</li>
+                <li><a href="about.html">About</a> - I talk a little about myself here</li>
+                <li><a href="contact.html">Contact</a> - on this page you will find different ways of being able to contact me.</li>
+              </ul>
+        </div>
     </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="styles.css" rel="stylesheet">
+        <title>Contact</title>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link nav-text" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-text" href="yds.html">Why Data Science?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-text" href="ycs50.html">Why CS50?</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-text" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active nav-text" aria-current="page" href="contact.html">Contact</a>
+              </li>
+            </ul>
+        </div>
+        <div>
+            <h1>How to Contact Joanne Middour</h1><br>
+        </div>
+        <div>
+          <p>
+            <h4>Reach me on Social Media</h4>
+            <!--<ul style="text-align: left; padding: 30px;">-->
+              <a href="https://www.linkedin.com/in/joanne-middour-1475081b3/">LinkedIn</a>,   <a href="https://www.facebook.com/JoJoMiddour">Facebook</a>,   or   <a href="https://twitter.com/j_middour">Twitter</a><br><br>
+            You can also reach me and view some of my projects on my <a href="https://joannemiddour.com">portfolio website</a>.
+            <!--</ul>-->
+          <hr>
+          <h4>Send me an email:</h4>
+            <p>
+              <!--Create an email web form using PHP code from https://www.lcn.com/support/articles/how-to-create-an-email-form-with-php/-->
+              <!--<form action="feedback_form.php" method="post">-->
+              <!--  <label>Your Name: </label>-->
+              <!--  <input type="text" name="your name" size="40"><br><br>-->
+              <!--  <label>Your email address: </label>-->
+              <!--  <input type="text" name="email address" size="40"><br><br>-->
+              <!--  <label>Your Message: </label><br>-->
+              <!--  <textarea type="feedback" cols="60" rows="10"></textarea><br><br>-->
+              <!--  <input type="submit" name="send" value="Submit">-->
+              <!--</form>-->
+
+              <!--Create an email web form using code from https://blog.hubspot.com/marketing/html-form-email-->
+              <form action="mailto:sahmjojo@gmail.com" method="POST" enctype="multipart/form-data" name="EmailFrom">
+                Your name: <input type="text" size="48" name="ContactName"><br><br>
+                Your email address: <input type="text" size="42" name="ContactEmail"><br><br>
+                Your Message: <br> <textarea name="ContactMessage" rows="6" cols="60"></textarea><br><br>
+                <input type="submit" value="Send Joanne a Message"><br><br>
+                * Please be sure to include a descriptive subject in your message such as "Sent from your website".
+              </form>
+        </div>
+    </body>
+</html>

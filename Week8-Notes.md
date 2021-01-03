@@ -1,4 +1,4 @@
-## CS50 - Week - 8
+## CS50 - Week - 8 - [HTML, CSS, JavaScript](https://youtu.be/5g0x2xv3aHU)
 
 ### [Introduction](https://youtu.be/BB7xPefB8og)
 - HTML: A language used to design webpages that web browsers can understand
@@ -26,11 +26,17 @@ Protocols:
     | --- | --- | --- |
     | FTP | 21 | File Transfer |
     | SMTP | 25 | Email (Send and Receive) |
-    | HTTP | 80 | Sending messages over the internet |
+    | HTTP | 80 | Website |
+    | HTTPS | 443 | Secure Website |
     | ... | ... | Many other ports |
+  
+  - Packets: The *package* that the request and response is put into, such as an envelope. If data is too large to fit in just one packet, it will be divided into multiple packets which may take different routes to get to the receiver. This will make it faster to send and receive the data.
+  
+  - HTTPS: the content of the packets are encrypted and can only be viewed by the sender and receiver. 
     
   - DNS: Domain Name System (a server)
     - A mapping between URLs and IP Addresses.
+    - Top Level Domain (TLD): denotes the type of website you are trying to visit, such as `.com`, `.edu`, etc. There really is no "hard rules" on domain types anymore though, expect for specific TLD that are still assigned to a specific type of website, such as `.org`, `.edu`, etc. 
     
     Examples:
     
@@ -48,6 +54,7 @@ Protocols:
       Host: www.example.com
       ```
       - `GET` request to *get* the webpage
+      - `POST` Changes the way the browser displays the website address by hiding the personal information, such as a search engine will display in the url what you searched for if processed via a `GET` request, but if you use a `POST` request the information needed still goes to the server but will not be displayed in the url.  
       - `HTTP/<version of the protocol>` tells the version of HTTP you are using.
       - `Host: <domain name>` the domain name of the site you are trying to reach.
     - What the return request looks like:
@@ -64,31 +71,42 @@ Protocols:
         | --- | --- |
         | 200 | OK |
         | 301 | Moved Permanently |
+        | 302 | Found |
+        | 304 | Not Modified |
+        | 307 | Temporary Redirect |
+        | 401 | Unauthorized |
         | 403 | Forbidden |
         | 404 | Not Found |
+        | 418 | I'm a Teapot |
         | 500 | Internal Server Error |
+        | 503 | Service Unavailable |
 
       - `OK` description of the status code
       - `Content-Type: text/html` the type of information that is being returned
     
 `?` in a http address denotes that after the "?" there are going to be some parameters inputted with values following them. 
 
+Command line `curl` just connects to a URL.
+  `curl -I <website>` show http headers
+
 ### [HTML](https://youtu.be/78wdlyzrKOA)
 **Hyper-Text Markup Language**
 
-The language that describes the structure of a webpage.
+The language that describes the structure of a webpage. Since it is not actually a machine language there are no loops or if conditions within actual HTML.
 
 Uses *tags* called *elements* to structure the webpage. Most must have a closing element.
   Example: `<html>Contents</html>`
+
+Attribute: a perimeter included in the tag / element of the page with a value.
 
 Metadata: Additional information about the webpage that is going to be relevant for a web browser that wants to read that webpage and understand how to display it to the user.
 
 Tags / Elements:
 - `<html></html>` Start and end of the html content
 - `<head></head>` Metadata for the page
-- `<body></body>` 
-- `<img src="<where to get the image from>" alt="<alternate text if image can not be viewed>">`
-- `<a href="<link address>">text you want the user to see</a>`
+- `<body></body>` The body of the page, the viewable portion to the user
+- `<img src="<where to get the image from>" alt="<alternate text if image can not be viewed>">` Inserts a picture to the page
+- `<a href="<link address>">text you want the user to see</a>` Inserts a hyper-link to another webpage.
   - `a` anchor
   - `href` hyper-link reference
 - `<p></p>` Beginning and ending of a paragraph
@@ -106,6 +124,11 @@ Tags / Elements:
 - `<div></div>` Start and end of a div (a section of the webpage)
 - `<select></select>` Creates a drop down menu
   - `<option value="<what the value is of this option>">option1</option>`
+- `<ul></ul>` Start and end of an unordered list
+- `<ol></ol>` Start and end of an ordered list (1., 2., 3., etc.)
+- `<li></li>` Nested inside `<ul>` or `<ol>` tags, start and end of a list item
+
+PHP: (Hypertext Pre-processor) a server side scripting language that is used to develop static or dynamic websites or web application. It is embedded in HTML and is used to manage dynamic content, such as email, databases, session tracking, and even build an entire e-commerce site.
 
 ### [CSS](https://youtu.be/g7nZFp2zSJ4)
 CSS: Cascading Style Sheets
@@ -124,11 +147,20 @@ Modifications to html to add in-line styling:
     ```
     h2
     {
-        text-align: center;
-        color: blue;
+        text-align: center;  # Changes text alignment
+        color: blue;  # Changes text color
     }
     ```
 - `font-family: <font style>` changes font style
+- `text-decoration: none;` removes the underline on a hyperlink
+
+Pseudo Selectors:
+  ```
+  a:hover  # When the user hovers over anything with the `a` tag, denoting a hyperlink
+  {
+      text-decoration: underline;  # The link will be underlined when they hover
+  }
+  ```
 
 CSS class: defines a category of elements that you want to add the same styling to.
 - Create a CSS class:
