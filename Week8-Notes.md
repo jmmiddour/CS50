@@ -120,6 +120,9 @@ Tags / Elements:
     - Need to use this code as your 1st `<form>` code to define what the form will do
   - `<input type="text">` the box where the user can type in *text* (nested inside `<form>` tags)
     - `<input name="<att name>" type="text">` Need to add a name attribute for the action
+      - `placeholder="<text you want to be a placeholder>"` will add a placeholder that the user will see but with disappear when user starts typing
+      - `autocomplete="off"` turns off the autocomplete for this form
+      - `autofocus` when the page is load it automatically "clicks" the input field so user just needs to start typing.
   - `<input type="submit" value="<text you want to display on the button>">` creates the button for user to click on (nested inside `<form>` tags)
 - `<div></div>` Start and end of a div (a section of the webpage)
 - `<select></select>` Creates a drop down menu
@@ -127,11 +130,23 @@ Tags / Elements:
 - `<ul></ul>` Start and end of an unordered list
 - `<ol></ol>` Start and end of an ordered list (1., 2., 3., etc.)
 - `<li></li>` Nested inside `<ul>` or `<ol>` tags, start and end of a list item
+- `<header></header>` defines the head of your page. Nested inside `<body>` tags.
+- `<main></main>` defines your page between the header and footer. Goes under your `<header>` tags.
+- `<footer></footer>` defines the bottom of your page. Goes under your `<main>` tags.
+
+`&#169;` gives you the copyright symbol.
 
 PHP: (Hypertext Pre-processor) a server side scripting language that is used to develop static or dynamic websites or web application. It is embedded in HTML and is used to manage dynamic content, such as email, databases, session tracking, and even build an entire e-commerce site.
 
 ### [CSS](https://youtu.be/g7nZFp2zSJ4)
 CSS: Cascading Style Sheets
+
+An argument or parameter in CSS is called a "property"
+
+CSS selectors:
+- `type` you can style based on any HTML element / tag
+- `class` coded as `.<class name>` can create class style attributes
+- `ID` coded as `#<id name>` can create style attributes for a unique ID.
 
 A language that allows you to add style to your webpage using different html tags/elements.
 
@@ -227,7 +242,7 @@ JavaScript vs C:
 
 DOM: Document Object Model - Structure of the webpage.
 
-JavaScript, when used in your webpage, can manipulate the DOM of the page to create an interative webpage.
+JavaScript, when used in your webpage, can manipulate the DOM of the page to create an interactive webpage.
 
 To include JavaScript in your webpage:
 - Go to your html file
@@ -237,6 +252,8 @@ To include JavaScript in your webpage:
     your JavaScript code lives here
   </script>
   ```
+- Can also put your JavaScript into another file and references it from the html file as so:
+  `<script src="<your JS file>"></script>`
 
 Built in functions to JavaScript:
 - `alert('<text you want the user to see>');` creates a pop up box at the top when the user goes to the website
@@ -248,6 +265,47 @@ Built in functions to JavaScript:
   - Adding `.onclick = <function your define>` you can make it change elements within the DOM
     - If you use `.onclick` need to have your `<script></script>` functionality under the element to be changed.
   - Adding `.style.<the style you want to change> = <style value>` you can change the style of the DOM
+  - Adding `.addEventListener("<event to listen for>", <function to preform>);` will run the function specified when the event is heard. 
+    - Can also run this method as just `document.addEventListener('DOMContentLoaded', <function where your querySelector listener is>) ` this will prevent the error of it not being able to find the event since it is further down the page. If you don't do this, you will have to move your whole `<script>` code below what it needs to listen for.
+      
+      Examples:
+      ```
+      function listen()
+      {
+        document.querySelector('form').addEventListener('submit', greet);
+      }
+      ```
+      or
+      ```
+      document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('form').addEventListener('submit', greet);
+      });  # This will combine the function and extra line of code all in one line and you do not have to name the function. In JS you can just create a function without a name when done this way. You can add multiple unnamed functions like this too as long as you make sure you still have the {} to define the functions body.
+      ```
+      Example of nesting 2 functions:
+      ```
+      document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('form').addEventListener('submit', function{
+              let name = document.querySelector('#name').value;
+              alert('Hello, ' + name + '!');
+          });
+      });
+      ```
+      - Some events you can listen for:
+        - blur
+        - change
+        - click
+        - drag
+        - focus
+        - keyup
+        - load
+        - mousedown
+        - mouseover
+        - mouseup
+        - submit
+        - touchmove
+        - unload
+        - etc...
+      
 
 Create a function to have the user enter their name and click submit to have an "alert" pop up to say hello and their name.
 - Include the following in your `<head>` tags:
