@@ -126,7 +126,8 @@ Tags / Elements:
   - `<input type="submit" value="<text you want to display on the button>">` creates the button for user to click on (nested inside `<form>` tags)
 - `<div></div>` Start and end of a div (a section of the webpage)
 - `<select></select>` Creates a drop down menu
-  - `<option value="<what the value is of this option>">option1</option>`
+  - `<option value="<what the value is of this option>">option1</option>` set each one of the options you want in your list
+  - Add `selected` in `<option...>` tag of the option you want as your default.
 - `<ul></ul>` Start and end of an unordered list
 - `<ol></ol>` Start and end of an ordered list (1., 2., 3., etc.)
 - `<li></li>` Nested inside `<ul>` or `<ol>` tags, start and end of a list item
@@ -227,6 +228,102 @@ If you want to change the stylesheet from getbootstrap.com, when you are on the 
 ### [JavaScript](https://youtu.be/7NPcZSrcA5o)
 A language that can run inside the browser to create an interactive user experience.
 
+Variables:
+- JavaScript variables are similar to Python variables.
+  - No type specifier
+  - When a local variable is first declared, preface with the `var` keyword.
+    - Example: `var x = 44;` creates a local variable.
+  - If you just type `x = 44;` that will give you a global variable.
+  
+Conditionals:
+- Very similar to C
+  - `if`
+  - `else if`
+  - `else`
+  - `switch`
+  - `?:`
+  
+Loops:
+- Very similar to C
+  - `while`
+  - `do-while`
+  - `for`
+    - In Python:
+      ```
+      for key in list:
+          use key here as stand-in for list[i]
+      ```
+    - In JS (iterate over all the keys):
+      ```
+      for (var key in object)
+      {
+          use object[key] in here
+      }
+      ```
+    - In JS (iterate over all the values):
+      ```
+      for (var key of object)
+      {
+          use key in here
+      }
+      ```
+  
+Functions:
+- All functions are introduced with the `function` keyword.
+  - Example:
+    ```
+    function() {
+        <body of the function>
+    }
+    ```
+- JS functions, particularly those bound specifically to HTML elements, can be *anonymous* - you don't have to them a name!
+  - ```
+    var nums = [1, 2, 3, 4, 5];
+    
+    nums = nums.map(function(num) {
+        return num * 2;
+    });
+    ```
+
+Arrays:
+- Declaring an array is pretty straightforward:
+  - `var nums = [1, 2, 3, 4, 5];`
+- Can be mixed data types.
+- Arrays are a special case of an object and has numerous methods that can applied to them:
+  - `array.size()`
+  - `array.pop()`
+  - `array.push()`
+  - `array.shift()`
+- There is also a method for arrays called `map()`, which can be used to apply a function to all elements of an array.
+
+Objects:
+- JS has the ability to behave in a few different ways, but in particular it can behave as an *object-oriented* programming language.
+- Have *properties* but also *methods* (functions that are inherent to the object), meaning nothing outside of it.
+  - Thus, like properties can methods not ever stand on their own.
+  - In C would code as: `function(object);`
+  - In JS would code it as: `object.function();`
+  - The fields and methods of an object are similar to the idea of a dictionary, which is part of Python.
+    - Example: `var herbie = {year: 1963, model: 'Beetle};`
+  
+Events:
+- An *event* in HTML and JS is a response to user interaction with the web page.
+  - A user clicks a button, a page has finished loading, a user has hovered over a portion of the page, the user typed in an input field.
+- JS has support for *event handlers*, which are callback functions that respond to HTML events.
+  - Many HTML elements have support for events as an attribute.
+- We can write a generic event handler in JS, creating an *event object*, that will tell us which of the buttons were clicked.
+  - Example: `<button onclick="alertname(event)">Button 1</button>`
+    - Example of the function code:
+      ```
+      function alertname(event)
+      {
+          var trigger = event.srcElement;
+          alert('You clicked on ' + trigger.innerHTML);
+      }
+      ```
+      - `srcElement` the HTML element / tag that was interacted with and recorded.
+      - `innerHTML` the data between HTML tags.
+      - `alert()` is similar to print, it will print, for the user to view, what is passed inside the `()`.
+
 JavaScript vs C:
   
 | C | JavaScript|
@@ -239,8 +336,6 @@ JavaScript vs C:
 | for loop | same as C but `let` vs `<data type>` in C |
 | define a function | slightly different |
 | void cough(int n) | function cough(n) |
-
-DOM: Document Object Model - Structure of the webpage.
 
 JavaScript, when used in your webpage, can manipulate the DOM of the page to create an interactive webpage.
 
@@ -305,7 +400,8 @@ Built in functions to JavaScript:
         - touchmove
         - unload
         - etc...
-      
+  - `console.log();` is similar to `printf`
+  - `parseInt()` forces the data type to integer.
 
 Create a function to have the user enter their name and click submit to have an "alert" pop up to say hello and their name.
 - Include the following in your `<head>` tags:
@@ -360,4 +456,44 @@ How to make it say hello and the users name directly on the page vs a popup aler
     Hello!
   </div>
   ```
+  
+### [DOM: Document Object Model](https://youtu.be/LKWJpgvfH3U) 
+Structure of the webpage.
+
+- JS object are incredibly flexible and can contain various fields, even when those fields are other objects.
+- The *document object* is one way of employing this paradigm, whereby that object organizes the entire contents of a web page.
+- By organizing an entire page into a JS object, we can manipulate the page's elements programmatically.
+- The document object itself, as well as all the objects contained within it, have a number of *properties*, and a number of *methods* that can be used to drill down to a very specific piece of your website.
+- By resetting those properties or calling certain methods, the contents of our web pages can change without us needing to refresh the page.
+
+DOM Properties:
+
+| Property | Description |
+| --- | --- |
+| innerHTML | Holds the HTML inside a set of HTML tags |
+| nodeName | Name of an HTML element or element's attributes |
+| id | The "id" attribute of an HTML element |
+| parentNode | A reference to the node one level up in the DOM |
+| childNodes | An array of references to the nodes one level down in the DOM |
+| attributes | An array of attributes of an HTML element|
+| style | An object encapsulating the CSS/HTML styling of an element |
+
+DOM Methods:
+
+| Method | Description |
+| --- | --- |
+| getElementById(id) | Gets the element with a given ID below this point in the DOM |
+| getElementsByTagName(tag) | Gets all elements with the given tag below this point in the DOM |
+| appendChild(node) | Add the given node to the DOM below this point |
+| removeChild(node) | Remove the specified child node from the DOM |
+
+If we start from document, we can get to any piece of our web page that we choose, through careful use of DOM properties and methods.
+
+jQuery:
+- Because DOM manipulation is so common with JS, and because the JS to do so can get quite lengthy, people wanted alternatives.
+- jQuery is a popular open-source library, released in 2006, that is designed to simplify client-side scripting (such as DOM manipulations).
+- Example:
+  In JS: `document.getElementById('colorDiv').style.backgroundColor = 'green`
+  In jQuery: `$('#colorDiv').css('background-color', 'green');`
+  - `$` is shorthand for jQuery
   
