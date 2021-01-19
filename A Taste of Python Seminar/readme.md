@@ -1,0 +1,1 @@
+# [The YouTube recording of the "A Taste of Python" seminar](https://youtu.be/prISYlq20sw)
