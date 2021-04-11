@@ -1,4 +1,20 @@
-# CS50 - Week - 9 - [Flask](https://youtu.be/x_c8pTW8ZUc)
+# CS50 - Week - 9 - Flask
+
+- [Flask Lecture on YouTube](https://youtu.be/x_c8pTW8ZUc)
+
+- [Lecture Notes](https://cs50.harvard.edu/x/2021/notes/9/)
+
+- [Lecture Slides](https://docs.google.com/presentation/d/1E3N-8puMqS2545GR4E7pfo4nAKPx36dwDDvOVv6oGAc/edit#slide=id.g9f210aecbc_0_1)
+
+- [Lecture Source Code - Web-access](https://cdn.cs50.net/2020/fall/lectures/9/src9/)
+
+- [Lecture Source Code - PDF](https://cdn.cs50.net/2020/fall/lectures/9/src9.pdf)
+
+- [Lecture Transcript](https://cdn.cs50.net/2020/fall/lectures/9/lang/en/lecture9.txt)
+
+- [Flask Short on YouTube](https://youtu.be/X0dwkDh8kwA)
+
+- [Ajax Short on YouTube](https://youtu.be/dQcBs4S-wEQ)
 
 ## [Web Servers](https://youtu.be/x_c8pTW8ZUc?t=50)
 
