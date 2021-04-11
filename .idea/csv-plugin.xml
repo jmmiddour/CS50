@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\LectureWeek9\hello0\application.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Week9_Notes.md">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
