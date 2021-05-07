@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+    {% if session.user_id %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Cost</th>
+                    <th>Current</th>
+                    <th>Current TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in stocks %}
+                    <tr>
+                        <td>{{ row.symbol }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.shares }}</td>
+                        <td>{{ row.cost }}</td>
+                        <td>{{ row.price }}</td>
+                        <td>{{ row.total }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td>CASH</td>
+                    <td colspan="4"></td>
+                    <td>{{ cash }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="5"></td>
+                <td><b>{{ total_assets }}</b></td>
+            </tfoot>
+        </table>
+    {% endif %}
+
+{% endblock %}

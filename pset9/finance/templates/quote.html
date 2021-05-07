@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get A Stock Quote!
+{% endblock %}
+
+{% block main %}
+
+    {% if session.user_id %}
+    
+    <div>
+            <h4>{{ name }} ({{ symbol }}) currently cost {{ curr_price }} per share.</h4>
+        <br><br><br>
+    </div>
+        <form action="/quote" method="post">
+            <div class="form-group">
+                <h5>Would you like to look up another stock?</h5>
+                <br>
+                <input autocomplete="off" autofocus class="form-control" name="stock_symbol" placeholder="Stock_Symbol" type="text">
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Quote</button>
+            <br>
+        </form>
+    {% endif %}
+
+{% endblock %}

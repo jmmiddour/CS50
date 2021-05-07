@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+    {% if session.user_id %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date Transacted</th>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in history %}
+                    <tr>
+                        <td>{{ row.transacted }}</td>
+                        <td>{{ row.symbol }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.shares }}</td>
+                        <td>{{ row.amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}
