@@ -106,6 +106,8 @@ Work done in `application.py`:
     
 - Added comments and doc strings to my code and the code that was provided by CS50
 
+- `finance.db` - `history` table
+
 Files Completed 100%
 
 - `templates/buy.html`
@@ -124,7 +126,7 @@ Files Completed 100%
 
 | [CS50 Team](https://github.com/cs50) | 
 | :---: | 
-| [<img src="https://avatars.githubusercontent.com/u/788676?s=200&v=4" width = "75" />](https://github.com/cs50) |
+| [<img src="https://avatars.githubusercontent.com/u/788676?s=200&v=4" width = "100" />](https://github.com/cs50) |
 | [<img src="https://img.shields.io/badge/-Github-333?style=flat&logo=Github&logoColor=white">](https://github.com/cs50) |
 | [<img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white">](https://www.linkedin.com/school/cs50/) |
 
@@ -132,8 +134,18 @@ All other functionality in the `application.py` file.
 
 Files Completed
 
+- `static/favicon.ico`
+
+- `style.css`
+
 - `templates/apology.html`
   
 - `templates/layout.html`
   
 - `templates/login.html`
+
+- `finance.db` - `users` table
+
+- `helpers.py`
+
+- `requirements.txt`
