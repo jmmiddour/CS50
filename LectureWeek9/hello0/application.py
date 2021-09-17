@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/")
 # Defines the program that runs when the above route is called
 def index():
-    # render_template -> Creates the HTML template that you specify
+    # render_template -> Creates the HTML templates that you specify
     # No need to specify what directory your HTML file is in as long as it is
     #   in a directory named "templates"
     # name=request.args.get -> gets the name of the parameter that you
