@@ -10,7 +10,7 @@ nav .navbar-brand
 /* Colors for brand */
 nav .navbar-brand .blue
 {
-    color: #537fbe;
+    color: cornflowerblue;
 }
 nav .navbar-brand .red
 {
@@ -18,7 +18,7 @@ nav .navbar-brand .red
 }
 nav .navbar-brand .yellow
 {
-    color: #f5b82e;
+    color: darkorange;
 }
 nav .navbar-brand .green
 {
@@ -52,31 +52,6 @@ main img
     max-width: 100%;
 }
 
-/*.form {*/
-/*    display: block;*/
-/*    align-content: center;*/
-/*    text-align: left;*/
-/*}*/
-
-/*.form-group {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    text-align-last: right;*/
-/*}*/
-
-/*.form-control {*/
-/*    display: flex;*/
-/*    align-self: start;*/
-/*}*/
-
-/*.form-control-stretch {*/
-/*    display: marker;*/
-/*    text-align: left;*/
-/*    text-align-last: right;*/
-/*    justify-content: space-between;*/
-/*}*/
-
 #wrapper {
     display: flex;
     height: 175px;
@@ -85,11 +60,97 @@ main img
     justify-content: space-evenly;
 }
 
+#wrapper-display1 {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    align-content: flex-start;
+    height: 500px;
+    justify-content: space-evenly;
+    color: cornflowerblue;
+    font-size: large;
+}
+
+#wrapper-display2 {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    align-content: flex-start;
+    height: auto;
+    justify-content: space-evenly;
+    color: #ea433b;
+    font-size: large;
+}
+
+#wrapper-display3 {
+    display: block;
+    text-align: center;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-evenly;
+    color: darkorange;
+    font-size: large;
+}
+
+#wrapper-display4 {
+    display: block;
+    text-align: center;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-evenly;
+    color: #2e944b;
+    font-size: large;
+}
+
+#wrapper-display5 {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    align-content: flex-start;
+    height: 500px;
+    justify-content: space-evenly;
+    color: cornflowerblue;
+    font-size: large;
+}
+
 #wrapper div {
     flex-basis: 75%;
     alignment: center;
     vertical-align: center;
     horiz-align: center;
     overflow: hidden;
+}
+
+#wrapper-btn {
+    justify-content: center;
+}
+
+.col-1-of-2 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-content: flex-end;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: 30px;
+}
+
+.col-2-of-2 {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    align-content: flex-start;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+
+.col-mid {
+    text-align: center;
+}
+
+.btn.btn-primary {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
