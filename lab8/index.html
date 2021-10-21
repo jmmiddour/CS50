@@ -4,15 +4,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
-        <title>Trivia!</title>
-
-        <script>
-
-            // TODO: Add code to check answers to questions
-
-        </script>
-
-    </head>
+        <title>Trivia!</title></head> 
     <body>
 
         <div class="jumbotron">
@@ -21,22 +13,37 @@
 
         <div class="container">
 
-            <div class="section">
+            <div class="section" id="q1">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
 
-                <!-- TODO: Add multiple choice question here -->
-
+                    <!--Multiple choice question-->
+                    <h3>What is the mascot of CS50?</h3>
+    
+                    <!--Answers: create a button for each one that changes to red and says underneath "Incorrect" when answered wrong. When correct answer submitted, button turns green and says underneath "Correct".-->
+                    <button id="q1a">a. David Malan</button><br>
+                    <button id="q1b">b. Light Bulbs</button><br>
+                    <button id="q1c">c. A Computer</button><br>
+                    <button id="q1d">d. A Rubber Duck</button><br>
+                    <button id="q1e">e. Brian Yu</button><br>
             </div>
 
-            <div class="section">
+            <div class="section" id="q2">
                 <h2>Part 2: Free Response</h2>
                 <hr>
+                <form>
 
-                <!-- TODO: Add free response question here -->
+                    <!--Free response question-->
+                    <h3>What did David Malan use to represent binary code in week 0?</h3><em>Hint: one word all lowercase</em><br><br>
 
+                    <!--Answers: a text field for user to type in answer and one submit button. Incorrect answer should turn text field red and says below it "Incorrect". Correct answer text field turns green and says "Correct" below it.-->
+                    <!--- lightbulbs-->
+                    <label for="text-box">Answer: </label>
+                    <input type="text" id="text-box" autocomplete="off">
+                    <input type="submit" value="Check Answer">
+                </form>
             </div>
-
         </div>
+    <script src="/script.js" type="text/javascript"></script>
     </body>
 </html>
